@@ -28,7 +28,7 @@ func (mongoCollection MongoCollection) WithContext() MongoCollection {
 	return mongoCollection
 }
 
-func NewNoSqlDB() *MongoDB {
+func mongoDB() *MongoDB {
 	port := Config.GetString(Config.NoSqlConfig + ".Port")
 	var noSqlProtocol, host string
 

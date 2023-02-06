@@ -12,11 +12,11 @@ func LoadRoute() {
 
 	gin.ForceConsoleColor()
 
-	//gin.SetMode("debug")
+	// gin.SetMode("debug")
 
 	Router = gin.Default()
 
-	//httpRouter.SetTrustedProxies([]string{"0.0.0.0"})
+	// httpRouter.SetTrustedProxies([]string{"0.0.0.0"})
 
 	Router.GET("/health-check", func(c *gin.Context) {
 		Res.Code(http.StatusOK).Message("Up and Running").Data(gin.H{"app": "OK"}).Json(c)
@@ -34,11 +34,11 @@ func InitializeLogger() LoggerBuilder {
 }
 
 func DatabaseConnection() {
-	DB = NewDatabase()
+	DB = mysqlDB()
 }
 
 func NoSqlConnection() {
-	Mongo = NewNoSqlDB()
+	Mongo = mongoDB()
 }
 
 func New() {
